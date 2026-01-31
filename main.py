@@ -2,14 +2,14 @@ import requests
 
 # function to fetch a random joke
 def get_random():
-    url = "https://official-joke-api.appspot.com/random_joke"
-    joke = requests.get(url)
+    url = "https://catfact.ninja/fact"
+    facts = requests.get(url)
 
-    if joke.status_code == 200:
-        jokedata = joke.json()
-        return f"{jokedata['setup']} - {jokedata['punchline']}"
+    if facts.status_code == 200:
+        factsdata = facts.json()
+        return f"{factsdata['setup']} - {factsdata['punchline']}"
     else:
-        return "Failed to fetch a joke"
+        return "Failed to fetch a fact"
 
 
 # main function
@@ -23,8 +23,8 @@ def main():
             print("Exiting the Joke Generator 👋")
             break
         else:
-            random_joke = get_random()
-            print(random_joke)
+            random_fact = get_random()
+            print(random_fact)
 
 
 # execute the whole function
